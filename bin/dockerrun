@@ -1,3 +1,3 @@
 docker container rm ikev2-vpn-server -f
 docker run -d --name ikev2-vpn-server --privileged -p 500:500/udp -p 4500:4500/udp -v /home/ipsec.conf:/etc/ipsec.conf:rw -v /home/generate-mobileconfig:/usr/bin/generate-mobileconfig:rw gaomd/ikev2-vpn-server:0.3.0
-docker run --privileged -i -t --rm --volumes-from ikev2-vpn-server -e "HOST=example.com" -e "C_NAME=jdikev2" -e "lOCAL_ID=internal1" gaomd/ikev2-vpn-server:0.3.0 generate-mobileconfig > jdikev2internal.mobileconfig
+docker run --privileged -i -t --rm --volumes-from ikev2-vpn-server -e "HOST=example.com" -e "C_NAME=xgikev2" -e "lOCAL_ID=global" gaomd/ikev2-vpn-server:0.3.0 generate-mobileconfig > xgikev2internal.mobileconfig
