@@ -4,7 +4,7 @@ RUN apt-get update \
     && DEBIAN_FRONTEND=noninteractive apt-get -y upgrade \
     && DEBIAN_FRONTEND=noninteractive apt-get -y install strongswan iptables uuid-runtime ndppd openssl \
     && rm -rf /var/lib/apt/lists/* # cache busted 20160406.1
-
+RUN ["apt-get", "install", "-y", "vim"]
 RUN rm /etc/ipsec.secrets
 RUN mkdir /config
 RUN (cd /etc && ln -s /config/ipsec.secrets .)
